@@ -1,0 +1,8 @@
+{
+    "env" : {
+        "DB_USERNAME" : "superkingsashish",
+        "DB_PASSWORD" : "Ashishb18",
+        "DB_NAME" : "appledatabase2",
+        "PORT": 2000
+    }
+}

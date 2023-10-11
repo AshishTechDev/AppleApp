@@ -4,6 +4,11 @@ const mongoose = require("mongoose");
 const session = require("express-session");
 const MongoDBStore = require("connect-mongodb-session")(session);
 const flash = require("connect-flash");
+const MONGODB_URI = `mongodb+srv://${
+  process.env.DB_USERNAME
+}:${encodeURIComponent(process.env.DB_PASSWORD)}@cluster0.27sicvx.mongodb.net/${
+  process.env.DB_NAME
+}?retryWrites=true&w=majority`;
 // const MONGODB_URI = `mongodb+srv://superkingsashish:${encodeURIComponent('Ashishb18')}@cluster0.27sicvx.mongodb.net/appledatabase2?retryWrites=true&w=majority` ;
 const app = express();
 const store = new MongoDBStore({
@@ -56,10 +61,10 @@ app.use(shopRoutes);
 // app.use(get404);
 
 mongoose
-.connect(process.env.MONGODB_URI)
+.connect(MONGODB_URI)
 .then(()=>{
     app.listen(process.env.PORT,'localhost', ()=>{
-        console.log('Server listening on '+ process.env.PORT) ;
+        console.log('Server listening on port '+ process.env.PORT) ;
     });
 })
 .catch(err => console.log(err));
