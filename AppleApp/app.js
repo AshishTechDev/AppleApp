@@ -4,10 +4,10 @@ const mongoose = require("mongoose");
 const session = require("express-session");
 const MongoDBStore = require("connect-mongodb-session")(session);
 const flash = require("connect-flash");
-const MONGODB_URI = `mongodb+srv://superkingsashish:${encodeURIComponent('Ashishb18')}@cluster0.27sicvx.mongodb.net/appledatabase2?retryWrites=true&w=majority` ;
+// const MONGODB_URI = `mongodb+srv://superkingsashish:${encodeURIComponent('Ashishb18')}@cluster0.27sicvx.mongodb.net/appledatabase2?retryWrites=true&w=majority` ;
 const app = express();
 const store = new MongoDBStore({
-    uri : MONGODB_URI,
+    uri : process.env.MONGODB_URI,
     collection : 'sessions',
 });
 //IMPORTING ROUTES
@@ -56,10 +56,10 @@ app.use(shopRoutes);
 // app.use(get404);
 
 mongoose
-.connect(MONGODB_URI)
+.connect(process.env.MONGODB_URI)
 .then(()=>{
-    app.listen(2000,'localhost', ()=>{
-        console.log('Server listening on 2000') ;
+    app.listen(process.env.PORT,'localhost', ()=>{
+        console.log('Server listening on '+ process.env.PORT) ;
     });
 })
 .catch(err => console.log(err));
