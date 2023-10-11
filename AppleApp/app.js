@@ -12,7 +12,7 @@ const MONGODB_URI = `mongodb+srv://${
 // const MONGODB_URI = `mongodb+srv://superkingsashish:${encodeURIComponent('Ashishb18')}@cluster0.27sicvx.mongodb.net/appledatabase2?retryWrites=true&w=majority` ;
 const app = express();
 const store = new MongoDBStore({
-    uri : process.env.MONGODB_URI,
+    uri : MONGODB_URI,
     collection : 'sessions',
 });
 //IMPORTING ROUTES
