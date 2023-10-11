@@ -1,0 +1,83 @@
+<%- include('../partials/_header.ejs') %>
+<link rel="stylesheet" href="/css/checkout.css">
+
+<div class="product-section">
+    <div class="checkout-section">
+        <h1>checkout</h1>
+           <main>
+                <button onclick="openAddAddressForm()">Add Address</button>
+                <div class="signup-form-modal">
+                <div class="signup-form">
+                <h1>ADD ADDRESS</h1>
+                <div class="close-form" onclick="closeAddressForm()">X</div>
+                <form action="/addAddress" method="post">
+                    <input
+                    type="text"
+                    name="houseNo"
+                    placeholder="Your House No"
+                    class="sign-up-form-control"
+                    />
+                   
+                    <input
+                    type="text"
+                    name="street"
+                    placeholder="Your Street Name"
+                    class="sign-up-form-control"
+                    />
+                  
+                    <input
+                    type="text"
+                    name="city"
+                    placeholder="Your City Name"
+                    class="sign-up-form-control"
+                    />
+                   
+                    <input
+                    type="text"
+                    name="pincode"
+                    placeholder="Your PinCode"
+                    class="sign-up-form-control password"
+                    />
+                 
+                    <input
+                    type="text"
+                    name="contactNo"
+                    placeholder="Your Contact No"
+                    />
+                    <input type="submit" value="Add" />
+                </form>
+                </div>
+      </div>
+      <% if(addresses.length){ %>
+        <% for(let address of addresses) { %>
+            <ul style="border: 2px solid black;padding: 2rem;margin-bottom : 2rem">
+                <li>
+                    House No : <%= address.houseNo %>
+                </li>
+                <li>
+                    Street : <%= address.street %>
+                </li>
+                <li>
+                   City :  <%= address.city %>
+                </li>
+                <li>
+                    PinCode : <%= address.pincode %>
+                </li>
+                <li>
+                    Contact No : <%= address.contactNo %>
+                </li>
+                <form action="/checkout" method="POST">
+                    <input type="hidden" name="addressId" value="<%= address._id %>">
+                    <button>Deliver to this Address</button>
+                </form>
+            </ul>
+            <% } %>
+        <%} else {%>
+            <h1>No Addresses Available!!</h1>
+            <% } %>
+            </main>
+            
+        </div>
+    </div>
+    <script src="../js/checkout.js"></script>
+<%- include('../partials/_footer.ejs') %>

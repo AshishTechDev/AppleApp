@@ -1,0 +1,64 @@
+
+.formfield {
+    display: grid;
+    /* background-color: beige; */
+    grid-template-rows: 20% 80%;
+}
+
+.formfield div {
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start ;
+    align-items: center;
+}
+
+.inputfield > form {
+    height: 60%;
+    width: 42%;
+    border-radius: 10px !important;
+    margin-top: 2em;
+    border: none ;
+    outline: none;
+}
+.inputfield form > div {
+    position: relative;
+    height: 25%;
+    width: 100%;
+    outline: none ;
+    border: none ;
+    border-radius: 15px !important;
+    /* border: 1px solid rgb(185, 185, 185) ; */
+
+}
+
+.inputfield form > div > input {
+    height: 100% !important;
+    width: 100% !important;
+    border: none !important;
+    outline: 1px solid rgb(185, 185, 185) ;
+}
+.inputfield form > div:nth-child(1) > input{
+    border-radius: 10px 10px 0px 0px !important;
+}
+.inputfield form > div:nth-child(2) > input , .inputfield form > div:nth-child(3) > input{
+    border-radius: 0px 0px 0px 0px !important;
+}
+.inputfield form > div:nth-child(4) > input{
+    border-radius: 0px 0px 10px 10px  !important;
+}
+
+.inputfield form > div > button {
+    
+    background-color: transparent ;
+    border: 0;
+    border-radius: 50%;
+    position: absolute;
+    right: 0px ;
+    margin: 10px;
+}
+
+button i {
+    height: 100%;
+    width: 100%;
+    font-size: 30px;
+}

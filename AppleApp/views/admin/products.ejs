@@ -1,0 +1,36 @@
+
+ <%- include('../partials/_header.ejs') %>
+        <!-- include index product  -->
+ <!-- product-section -->
+ <div class="product-section admin-product">
+        <div class="heading"><h2>Admin Product</h2><h4>Add Your New Product</h4></div>
+        <% if(products.length > 0){ %>
+    <div class="con">
+        <% for(let product of products) {%>
+        <a href="/Details/<%= product._id %>">
+        <article class="card">
+            <div class="image-box">
+                <img src="http://localhost:2000/<%= product.imageUrl %>" >
+            </div>
+            <div class="details">
+                <h1><%= product.title %></h1>
+                <h3 class="price"><%= product.price %></h3>
+                <p><%= product.description %></p>   
+            </div>
+            <div class="buttons">
+                <a href="/admin/edit-product/<%= product._id %>?edit=true" class="btn">Edit</a>
+                <a href="/admin/delete-product/<%= product._id %>" class="btn">Delete</a>
+            </div>
+        </article>
+        </a>
+        <% }%>
+    </div>
+    <% } else { %>
+        <h1> No Products Added!! </h1>
+        <% } %>
+</div>
+    <!-- product-section  end-->
+
+ <!-- include footer  -->
+
+ <%- include('../partials/_footer.ejs') %>

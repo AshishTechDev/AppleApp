@@ -1,0 +1,113 @@
+<%- include('../partials/_header.ejs') %>
+<div class="detail-container">
+    <div class="message">
+        <h3>Apple Store</h3>
+    </div>
+    <hr>
+    <div class="con-details">
+        <div class="detailOne">
+           
+                <div class="image-title">
+                    <h1><%= product.title %></h1>
+                </div>
+                <div class="details">
+                    <h3 class="price"> MRP <%= product.price %>.00 <br>
+                        (Incl. of all taxes)</h3>
+                </div>
+                <div class="detail-button">
+                    <div class="Delivery">
+                        <div class="DeliveryLogo">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#404040}</style><path d="M48 0C21.5 0 0 21.5 0 48V368c0 26.5 21.5 48 48 48H64c0 53 43 96 96 96s96-43 96-96H384c0 53 43 96 96 96s96-43 96-96h32c17.7 0 32-14.3 32-32s-14.3-32-32-32V288 256 237.3c0-17-6.7-33.3-18.7-45.3L512 114.7c-12-12-28.3-18.7-45.3-18.7H416V48c0-26.5-21.5-48-48-48H48zM416 160h50.7L544 237.3V256H416V160zM112 416a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm368-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/></svg>                        </div>
+                        <div class="DeliveryText">
+                            <span>Delivery:</span>
+                            <ul>
+                                <li>In stock </li>
+                                <li>Free Delivery</li>
+                            </ul>
+                            <a>Get Delivery Date</a>
+                        </div>
+                    </div>
+                    <div class="Delivery">
+                        <div class="DeliveryLogo">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#454545}</style><path d="M160 112c0-35.3 28.7-64 64-64s64 28.7 64 64v48H160V112zm-48 48H48c-26.5 0-48 21.5-48 48V416c0 53 43 96 96 96H352c53 0 96-43 96-96V208c0-26.5-21.5-48-48-48H336V112C336 50.1 285.9 0 224 0S112 50.1 112 112v48zm24 48a24 24 0 1 1 0 48 24 24 0 1 1 0-48zm152 24a24 24 0 1 1 48 0 24 24 0 1 1 -48 0z"/></svg>
+                        </div>
+                        <div class="DeliveryText">
+                        <span>Pickup:</span>
+                        <ul>
+                            <li>
+                                <a>Check availability</a>
+                            </li>
+                        </ul>
+                        </div>
+                    </div>
+                    <a href="/addToCart/<%= product._id %>" class="btn">Add to Bag</a>
+                </div>
+         
+        </div>
+        <div class="detailTwo">
+            <div class="image-box">
+            <img src="http://localhost:2000/<%= product.imageUrl %>"  >
+        </div></div>
+    </div>
+    <div class="con-details2">
+        <hr>
+        <h1>Product Information</h1>
+        <div class="card-description">
+            <h2>Overview</h2>
+            <p><%= product.description %></p>   
+        </div>
+        <hr>
+        <h1>Product Specification</h1>
+        <div class="product-specification"   style="display:<%= product.category == 'AirPods' ? 'None' : '' %>;" %> >
+            <div class="box">
+                <img src="/images/products-spec/screen.png" alt="">
+                <span>Retina HD display</span>
+                <p><%= product.display %></p>
+            </div>
+            <div class="box">
+                <img src="/images/products-spec/camera.png" alt="">
+                <span>Pro camera system</span>
+                <p><%= product.camera %></p>
+            </div>
+            <div class="box">
+                <img src="/images/products-spec/motion.png" alt="">
+                <p>Action mode smooths out shaky handheld videos</p>
+            </div>
+            <div class="box">
+                <img src="/images/products-spec/battery.png" alt="">
+                <p>Up to 29 hours
+                    video playback5</p>
+            </div>
+            <div class="box">
+                <img src="/images/products-spec/A16.png" alt="">
+                <p>A16 Bionic chip</p>
+            </div><div class="box">
+                <img src="/images/products-spec/facereco.png" alt="">
+                <p>Face ID</p>
+            </div><div class="box">
+                <img src="/images/products-spec/5g.png" alt="">
+                <p>Superfast 5G cellular4</p>
+            </div><div class="box">
+                <img src="/images/products-spec/screen.png" alt="">
+                <span>Dynamic Island</span>
+                <p>A new way to
+                    interact with iPhone</p>
+            </div><div class="box">
+                <img src="/images/products-spec/touchrec.png" alt="">
+                <p>Touch ID</p>
+            </div><div class="box">
+                <img src="/images/products-spec/sos.png" alt="">
+                <span>Emergency SOS</span>
+                <p>Crash Detection</p>
+            </div><div class="box">
+                <p></p>
+                <span>-</span>
+            </div><div class="box">
+                <p></p>
+                <span>-</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('../partials/_footer.ejs') %>

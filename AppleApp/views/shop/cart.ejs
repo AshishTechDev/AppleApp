@@ -1,0 +1,56 @@
+<%- include('../partials/_header.ejs') %>
+
+ <!-- product-section -->
+ <main>
+ <div class="cart-section">
+    <h1 class="heading">Your Cart </h2>
+        <% if(products.length > 0) {%>
+        <div class="cart-div">
+
+                    <table id="cart-table" border="1">
+                       <tr>
+                        <th>Image</th>
+                        <th>Product Name</th>
+                        <th>Product Price</th>
+                        <th>Product Quantity</th>
+                        <th></th>
+                       </tr>
+                       <% for(let product of products) { %>
+                        <tr>
+                        <td>
+                           <div class="table-img"><img src="<%= product.productId.imageUrl %>" alt=""></div>
+                      </td>
+                        <td><%= product.productId.title %></td>
+                        <td><%= product.productId.price %></td>
+                        <td class="plus-minus">
+                            <div class="quantity">
+                                <a  class="quantity__minus" onclick="updateQty(-1, '<%= product.productId._id %>', event)"><span>-</span></a>
+                                <button name="quantity" type="text" class="quantity__input"><%= product.quantity %></button>
+                                <a  class="quantity__plus" onclick="updateQty(1, '<%= product.productId._id %>', event)"><span>+</span></a>
+                              </div>
+                        </td>
+                        <td>
+                            <form onsubmit="deleteProduct(event)">
+                                <input type="hidden" name="ProductID" value="<%= product.productId._id %>">
+                                <Button class="cart-btn" >Delete </Button>
+                            </form>
+                        </td>
+                       </tr>
+                       <% }%>
+                    </table>
+          
+        </div>
+        <button class="cart-btn placebutton" style="margin-bottom: 2rem; width: 20rem;" >
+            <a href="/address" style="display: block; color:aliceblue; width: 100%; height: 100%;">Place Order</a>
+        </button>
+        <% } else { %>
+            <div style="height: 81vh; width: 100%; text-align: center;">
+                <h1 style="margin-top: 10%;"> Currently No Products are Available in your Cart!! </h1>
+            </div>
+            <% } %>
+</div>
+    <!-- product-section  end-->
+
+    <script src="../js/cart.js"></script>
+<%- include('../partials/_footer.ejs') %>
+</main>

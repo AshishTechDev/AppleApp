@@ -1,0 +1,62 @@
+<%- include('../partials/_header.ejs') %>
+
+<div class="section-container">
+<section class="section">
+    <div></div>
+    <div class="container">
+        <div>
+            <div><span>Apple ID</span></div>
+            <div></div>
+            <div>
+                <span><a href="/login">Sign In</a></span>
+                <span><a href="/signup">Create Your Apple ID</a></span>
+                <span>FAQ</span>
+            </div>
+        </div>
+        <div>
+            <hr>
+        </div>
+        <div>
+            <div>
+                <img src="/images/login/applelogo.png" alt="" srcset=""  width="756px" height="756px" >
+            </div>
+            <div class="formfield">
+                <div>
+                    <h3>Apple ID</h3>
+                    <p>Manage your Apple account</p>
+                </div>
+                <div class="inputfield">
+                   <form action="/login" method="POST">
+                    <div class="emailed">
+                        <input type="text" class="error-email" name="email" id="" placeholder="Apple ID">
+                    </div>
+                    <div class="passed">
+                        <input type="password" name="password" id="" placeholder="Password">
+                        <button type="submit">
+                            <i class="fa-regular fa-circle-right" style="color: #a1a1a1;"></i>
+                        </button>
+                    </div>
+                    <% if(errorMessage.length > 0){%>
+                    <div class="user-Message user-Message-error">
+                        <p><%= errorMessage %>
+                            <a href="/reset"  style="margin-top: 1rem; text-decoration: underline;">Forgotten password?</a>
+                        </p>
+                    </div>
+                    <% } %>
+                  </form>
+                  <div class="inputfield-link"><a href="/reset" style="margin-top: 1rem; text-decoration: underline;">Forgotten password?</a></div>
+                </div>
+                <div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div></div>
+
+</section>
+</div>
+
+<script src="js/login.js" defer></script>
+<script src="js/navbar.js" defer></script>
+</body>
+</html>

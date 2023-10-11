@@ -1,0 +1,26 @@
+<%- include('../partials/_header.ejs') %>
+
+    <div class="checkout-container container">
+        <div class="checkout-box">
+            <div class="check-head">
+                <h1>Your Order Has been Confirmed!</h1>
+            </div>
+            <div class="check-logo">
+                <img src="/images/tick.png" alt="">
+            </div>
+            <div class="check-message">
+                <h3>Thank you for your purchase !</h3>
+            </div>
+            <div class="check-Id">
+                <p>Your order ID is : <%= orderId %></p>
+            </div>
+            <div class="check-para">
+            <span >you will receive order confirmation email with details of your order</span>
+            </div>
+            <div class="check-Button">
+                <a href="/">CONTINUE SHOPPING</a>
+            </div>
+        </div>
+    </div>
+    <script src="../js/cart.js"></script>
+<%- include('../partials/_footer.ejs') %>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%- pageTitle %></title>
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/product.css">
+    <link rel="stylesheet" href="/css/plus-minus.css">
+    <link rel="stylesheet" href="/css/addproduct.css">
+    <link rel="stylesheet" href="/css/cart.css">
+    <link rel="stylesheet" href="/css/orders.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/loginbox.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/login.css">
+    <script src="/js/product.js" defer></script>
+    <script src="/js/navbar.js" defer></script>
+    <script src="/js/editProduct.js" defer></script>
+
+
+
+</head>
+<body>
+    <div class="nav-container">
+        <nav>
+            <ul class="mobile-nav">
+                <li>
+                    <div class="menu-icon-container">
+                        <div class="menu-icon">
+                            <span class="line-1"></span>
+                            <span class="line-2"></span>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <a href="#" class="link-logo"></a>
+                </li>
+
+                <li>
+                    <a href="" class="link-bag"></a>
+                </li>
+            </ul>
+
+            <ul class="desktop-nav">
+                <li>
+                    <a href="/" class="link-logo"></a>
+                </li>
+                
+                <% if(isAuthenticated){ %>
+                <li>
+                    <a  href="/cart">Cart</a>
+                </li>
+                
+                <% if(isAdmin) { %>
+                <li>
+                    <a  href="/admin/add-product">Add
+                        Product
+                    </a>
+                </li>
+                <li>
+                    <a  href="/admin/products">Admin Products
+                    </a>
+                </li>
+                <% } else { %>
+                    <li>
+                        <a href="/address">Address</a>
+                    </li>
+                    <li>
+                        <a href="/orders">Orders</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/AirPods">AirPods</a>
+                    </li>
+                    <% } } %>
+
+                <li>
+                    <a class="link-search"></a>
+                </li>
+                <li>
+                    <a class="link-bag link-bagg"></a>
+                    <div class="loginbox" >
+                            <div class="login-img">
+                                <div class="iimg">
+                                    <img src="/images/products/mobile-img.png" alt="">
+                                </div>
+                            </div>
+                            <div class="username">
+                         <% if(isAuthenticated) { %>
+                                <p> <%= username %> </p>
+                                <% } else {%>
+                                    <p>Please Sign in!</p>
+                                    <% } %>
+                            </div>
+                            <% if(!isAuthenticated) { %>
+                            <div class="sublogindiv">
+                                <a href="/login">Login</a>
+                                <a href="/signup">Signup</a>
+                            </div>
+                            <% } else { %>
+                            <div class="sublogout">
+                                <a href="/logout">Logout</a>
+                            </div>
+                            <% } %>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- End of navigation menu items -->
+
+        <div class="search-container hide">
+            <div class="link-search"></div>
+            <div class="search-bar">
+                <form action="">
+                    <input type="text" placeholder="Search apple.com">
+                </form>
+            </div>
+            <div class="link-close"></div>
+
+            <div class="quick-links">
+                <h2>Quick Links</h2>
+                <ul>
+                    <li>
+                        <a href="#">Visiting an Apple Store FAQ</a>
+                    </li>
+                    <li>
+                        <a href="/iPhones">iPhone</a>
+                    </li>
+                    <li>
+                        <a href="/iPads">iPad</a>
+                    </li>
+                    <li>
+                        <a href="/AirPods">AirPods</a>
+                    </li>
+                    <li>
+                        <a href="/iMacs">iMac</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="mobile-search-container">
+            <div class="link-search"></div>
+            <div class="search-bar">
+                <form action="">
+                    <input type="text" placeholder="Search apple.com">
+                </form>
+            </div>
+            <span class="cancel-btn">Cancel</span>
+
+            <div class="quick-links">
+                <h2>Quick Links</h2>
+                <ul>
+                    <li>
+                        <a href="#">Visiting an Apple Store FAQ</a>
+                    </li>
+                    <li>
+                        <a href="/iPhones">iPhone</a>
+                    </li>
+                    <li>
+                        <a href="/iPads">iPad</a>
+                    </li>
+                    <li>
+                        <a href="/AirPods">AirPods</a>
+                    </li>
+                    <li>
+                        <a href="/iMacs">iMac</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="overlay"></div>
+    <!-- end of nav div -->

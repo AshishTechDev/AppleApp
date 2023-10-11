@@ -1,0 +1,20 @@
+<div class="form-control">
+    <input
+      type="file"
+      name="imageUrl"
+      id="imageUrl"
+      hidden
+      onchange="pickedhandler(event)"
+    />
+    <div class="image-upload center">
+      <div class="image-upload__preview">
+        <img
+        src="<% if(editable){ %>http://localhost:2000/<%= product.imageUrl %><% } else { %>http://via.placeholder.com/640x360<% } %>"
+        
+          alt="Preview"  width="400px" height="400px"
+        />
+      </div>
+      <button type="button" onclick="pickImageHandler()">PICK IMAGE</button>
+    </div>
+  </div>
+  

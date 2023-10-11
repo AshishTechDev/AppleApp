@@ -1,0 +1,29 @@
+<%- include('../partials/_header.ejs') %>
+<div class="product-section">
+  <h1 class="heading"><%- pageTitle %> </h2>
+    <% if(products.length > 0) {%>
+        <div class="con">
+          <% for(let product of products) {%>
+          <article class="card">
+              <div class="image-box">
+                  <img src="<%= product.imageUrl %>" width="320px" height="240px">
+              </div>
+              <div class="details">
+                  <h1><%= product.title %></h1>
+                  <h3 class="price"><%= product.price %></h3>
+                  <p><%= product.description %></p>   
+              </div>
+              <div class="buttons">
+                  <a href="/cart" class="btn">Add to Cart</a>
+                  <a href="/Details/<%= product._id %>" class="btn">Details</a>
+              </div>
+          </article>
+          <% }%>
+      </div>
+      <% } else { %>
+        <div style="height: 81vh; width: 100%; text-align: center;">
+            <h1 style="margin-top: 10%;"> Currently No Products are Available!! </h1>
+        </div>
+          <% } %>
+</div>
+<%- include('../partials/_footer.ejs') %>

@@ -1,0 +1,31 @@
+ <!-- product-section -->
+ <div class="product-section">
+    <h1 class="heading">Latest Apple Products </h2>
+        <% if(products.length > 0) {%>
+        <div class="wrapper">
+            <i id="left" class="fa-solid fa-angle-left"></i>
+            <div class="carousel">
+            <% for(let product of products) {%>
+                    <article class="card" >
+                        <div class="image-box">
+                            <img src="<%= product.imageUrl %>" draggable="false">
+                        </div>
+                        <div class="details">
+                            <h1><%= product.title %></h1>
+                            <h3 class="price">MRP <%= product.price %>/-</h3>
+                            <p><%= product.description %></p>   
+                        </div>
+                        <div class="buttons">
+                            <a href="/addToCart/<%= product._id %>" class="btn">Add to Cart</a>
+                            <a href="/Details/<%= product._id %>" class="btn">Details</a>
+                        </div>
+                    </article>          
+            <% }%>
+        </div>
+        <i id="right" class="fa-solid fa-angle-right"></i>
+    </div>
+        <% } else { %>
+            <h1> Currently No Products are Available!! </h1>
+            <% } %>
+</div>
+    <!-- product-section  end-->

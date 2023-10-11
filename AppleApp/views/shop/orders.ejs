@@ -1,0 +1,76 @@
+<%- include('../partials/_header.ejs') %>
+
+ <!-- product-section -->
+ <main>
+ <div class="order-section">
+    <div class="order-heading">
+        <div>
+            <h1>MY Orders</h1>
+        </div>
+        <div class="font-light">Track Your Placed Orders</div>
+    </div>
+    <div class="order-container">
+        <div>
+            <p><a>Manage Orders</a></p>
+            <p class="font-light">Order Placed Thu 17th Nov 23</p>
+            <p> 
+                <i class="fa-solid fa-location-crosshairs"></i>
+                Track Order</p>
+        </div>
+
+        <% if(orders.length > 0) {%>
+        <% orders.forEach(order => {%>
+
+            <% order.products.forEach(p =>{ %>
+            <div class="order-items">
+            <div class="Order-img-container">
+                <div class="order-img">
+                    <img src="http://localhost:2000/<%= p.product.imageUrl %>" alt="">
+                </div>
+                <div class="order-img-detail">
+                    <div>
+                        <p><%= p.product.title %></p>
+                        <p class="font-light">By Maike</p>
+                    </div>
+                    <p>Quantity. <%= p.quantity %> | Rs. <%= p.product.price %></p>
+                </div>
+            </div>
+            <div class="order-details">
+                <div>
+                    <p class="font-light">Status(<%= p._id %>)</p>
+                    <span>On His way</span>
+                </div>
+                <div>
+                    <p class="font-light">Delivery Expected by</p>
+                    <span>
+
+                        <%= order.Delivery %>
+                    
+                    </span>
+                </div>
+            </div>
+        </div>
+        <% }) %>
+        <div class="order-total">
+            <div>
+                <a href="/orders/<%= order._id %>">
+                    D/W INVOICE
+                </a>
+            </div>
+            <div>
+                <span class="font-light">Paid using credit card ending with 4242</span>
+                <p>Total Rs.<%= order.total %> </p>
+            </div>
+        </div>
+        <% }) } else {%>
+            <div class="order-items" >
+                <h2>No orders yet!</h2>
+            </div>
+            <% } %>
+    </div>
+<div>
+    
+</div>       
+</div>
+<%- include('../partials/_footer.ejs') %>
+</main>

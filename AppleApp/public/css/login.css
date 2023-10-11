@@ -1,0 +1,204 @@
+
+.section {
+    background-color: rgb(247, 247, 247);
+    height: 100vh;
+    width: 100%;
+    /* position: absolute; */
+    /* z-index: -9999; */
+    display: grid;
+    grid-template-columns: 20% 60% 20% ;
+    padding: 0;
+}
+
+section .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* background-color: blueviolet; */
+}
+
+section .container > div:nth-child(1)  {
+    height: 5.5%;
+    width: 100%;
+     /* border: 1px solid black; */
+     display: flex;
+     justify-content: space-between;
+    align-items: center;
+}
+section .container > div:nth-child(1) > div {
+    /* background-color: brown; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+section .container > div:nth-child(1) > div > span {
+    font-family: Helvetica,Arial,sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    /* background-color: yellow; */
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+section .container > div:nth-child(1) > div:nth-child(1) span {
+    font-family: SF Pro Display,SF Pro Icons,Helvetica Neue,Helvetica,Arial,sans-serif;
+    font-size: 21px;
+    font-weight: 600;
+    height: 52px;
+}
+section .container > div:nth-child(1) > div:nth-child(3) {
+    justify-content: end;
+
+}
+section .container > div:nth-child(1) > div:nth-child(3) > span  {
+    /* background-color: red; */
+    /* border: 1px solid black; */
+    justify-content: space-between ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    margin-left : 25px ;
+}
+section .container > div:nth-child(1) > div:nth-child(3) > span a {
+    color: #868c96;
+
+}
+
+section .container > div:nth-child(2) {
+    height: 1.5%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    align-items: center;
+}
+section .container > div:nth-child(3) {
+    height: 93%;
+    width: 100%;
+     /* border: 1px solid black; */
+}
+section .container > div:nth-child(2) > hr {
+    width: 90%; 
+    border: 0.1em solid rgb(99, 99, 99);
+}
+
+
+section .container > div:nth-child(1) > div:nth-child(1), section .container > div:nth-child(1) > div:nth-child(3) {
+    height: 100%;
+    width: 40%;
+    /* border: 1px solid black; */
+    
+}
+
+.container > div:nth-child(3) {
+    display: grid ;
+    grid-template-rows: 33% 57% ;
+} 
+
+.container > div:nth-child(3) div:nth-child(1) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container > div:nth-child(3) div:nth-child(1) img {
+    height: 100%;
+    width: 25%;
+    object-fit: cover;
+
+}
+
+.formfield {
+    display: grid;
+    /* background-color: beige; */
+    grid-template-rows: 20% 40% 40%;
+}
+
+.formfield div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputfield > form {
+    height: 60%;
+    width: 42%;
+    border-radius: 10px !important;
+    border: none ;
+    outline: none;
+}
+.inputfield form > div {
+    position: relative;
+    height: 50%;
+    width: 100%;
+    outline: none ;
+    border: none ;
+    border-radius: 15px !important;
+    /* border: 1px solid rgb(185, 185, 185) ; */
+
+}
+
+.inputfield form > div > input {
+    height: 100%;
+    width: 100%;
+    border: none !important;
+    outline: 1px solid rgb(185, 185, 185) ;
+}
+.inputfield form > div:nth-child(1) > input{
+    border-radius: 10px 10px 0px 0px !important;
+}
+.inputfield form > div:nth-child(2) > input{
+    border-radius: 0px 0px 10px 10px  !important;
+}
+
+.inputfield form > div > button {
+    
+    background-color: transparent ;
+    border: 0;
+    border-radius: 50%;
+    position: absolute;
+    right: 0px ;
+    margin: 10px;
+}
+
+button i {
+    height: 100%;
+    width: 100%;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+
+.passed {
+    position: relative;
+    background-color: aqua !important;
+}
+
+        /* error  */
+    .user-Message{
+        position: absolute;
+        z-index: 99999;
+        width: 28rem;
+        margin: 5px auto;
+        background-color: aliceblue;
+        color: blue;
+        border: 3px soldi blue;
+        padding :1rem 6rem !important;
+        border-radius: 5px;
+        text-align: center;
+    }
+    .user-Message-error{
+        background-color: #fae9a3;
+        color: #503e30;
+        border:1px solid rgba(185,149,1,.47) !important;
+    }
+
+    .hide {
+        visibility: hidden;
+    }
+
+

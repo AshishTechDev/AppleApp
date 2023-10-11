@@ -1,0 +1,112 @@
+<form action="/admin/<% if(editable) { %>edit-product<% } else {%>add-product<% } %>" method="POST" enctype="multipart/form-data">
+    <div class="row">
+      <div class="col-25">
+        <label for="fname">Product Name</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="fname" name="title" placeholder="Your Product Name.." value="<% if(editable){  %><%= product.title %><% } %>">
+        <% if(errorMessage.length > 0){%>
+          <%= console.log(path) %>
+          <% if(path == "title"){%>
+          <div class="user-Message user-Message-error tit">
+              <p><%= errorMessage %>
+              </p>
+          </div>
+          <% } %>
+          <% } %>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-25">
+          <label for="lname">Product Image</label>
+        </div>
+        <div class="col-75">  
+          <%- include('./imageUrl.ejs') %>
+         
+          <% if(errorMessage.length > 0){%>
+            <% if(path == "imageUrl"){%>
+            <div class="user-Message user-Message-error tit">
+                <p><%= errorMessage %>
+                </p>
+            </div>
+            <% } %>
+            <% } %>
+
+        </div>
+      </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="lname">Product Price</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="lname" name="price" placeholder="Your Product Price.." value="<% if(editable){  %><%= product.price %><% } %>">
+        <% if(errorMessage.length > 0){%>
+          <% if(path == "price"){%>
+          <div class="user-Message user-Message-error pri">
+              <p><%= errorMessage %>
+              </p>
+          </div>
+          <% } } %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="product">Product Category</label>
+      </div>
+      <div class="col-75">
+        <select id="product" name="category" >
+          <option value="iPhone" <% if(editable){  %> <%= product.category == 'iPhone' ? 'selected' : '' %><% } %>>iPhone</option>
+          <option value="iMac" <% if(editable){  %> <%= product.category == 'iMac' ? 'selected' : '' %><% } %>>Mac</option>
+          <option value="iPad" <% if(editable){  %> <%= product.category == 'iPad' ? 'selected' : '' %><% } %>>ipad</option>
+          <option value="AirPods" <% if(editable){  %> <%= product.category == 'AirPods' ? 'selected' : '' %><% } %>>AirPods</option>
+          <option value="iWatch" <% if(editable){  %> <%= product.category == 'iWatch' ? 'selected' : '' %><% } %>>iWatch</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="subject">Product Description</label>
+      </div>
+      <div class="col-75">
+        <textarea id="subject" name="description" placeholder="Write Product Description.." style="height:200px"><% if(editable){  %><%= product.description %><% } %></textarea>
+        <% if(errorMessage.length > 0){%>
+          <% if(path == "description"){%>
+          <div class="user-Message user-Message-error des">
+              <p><%= errorMessage %>
+              </p>
+          </div>
+          <% } } %>
+      </div>
+    </div>
+        <% if(addable || (product.category != "AirPods")) { %>
+    <div class="row">
+      <div class="col-25">
+        <label for="product">Product Display</label>
+      </div>
+      <div class="col-75">
+        <select id="product" name="display" >
+          <option value="17.00 cm (6.7″) or
+          15.54 cm (6.1″)" <% if(editable){  %> <%= product.display == '17.00 cm (6.7″) or 15.54 cm (6.1″)' ? 'selected' : '' %><% } %>>17.00 cm (6.7″) or 15.54 cm (6.1″)(iPhone)</option>
+          <option value="34.00 cm (12.7″) or 24.54 cm (10.1″)" <% if(editable){  %> <%= product.display == '34.00 cm (12.7″) or 24.54 cm (10.1″)' ? 'selected' : '' %><% } %>>34.00 cm (12.7″) or 24.54 cm (10.1″)(iPad)</option>
+          <option value="40.00 cm (15.7″) or 47.54 cm (17.1″)" <% if(editable){  %> <%= product.display == '40.00 cm (15.7″) or 47.54 cm (17.1″)' ? 'selected' : '' %><% } %>>40.00 cm (15.7″) or  47.54 cm (17.1″)(iMac)</option>
+          <option value="3.00 cm (2.3″) or 5.54 cm (3.1″)" <% if(editable){  %> <%= product.display == '3.00 cm (2.3″) or 5.54 cm (3.1″)' ? 'selected' : '' %><% } %>>3.00 cm (2.3″) or 5.54 cm (3.1″)(iWatch)</option>
+        </select>
+      </div>
+    </div>
+    <% if(addable || (product.category != "iMac")) { %>
+    <div class="row">
+      <div class="col-25">
+        <label for="subject">Product Camera</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="lname" name="camera" placeholder="Your Product Camera megapixel.." value="<% if(editable){  %><%= product.camera %><% } %>">
+      </div>
+    </div>
+    <% } %>
+    <% } %>
+
+    <input type="hidden" name="id" value="<% if(editable){  %><%= product._id %><% } %>">
+    <div class="row">
+      <input type="submit" value="<% if(editable) { %>Update Product <% } else { %>Add Product <% } %>">
+    </div>
+  </form>
